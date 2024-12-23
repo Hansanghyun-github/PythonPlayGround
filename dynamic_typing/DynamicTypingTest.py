@@ -11,3 +11,9 @@ def test_dynamic_typing2():
 def test_dynamic_typing3():
     a = 5
     assert type(a) is int
+
+def test_dynamic_typing4():
+    a = 5.0
+    assert type(a) is float
+    a = 5
+    assert type(a) is int
