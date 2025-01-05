@@ -8,3 +8,7 @@ def test_fail():
 
 def test_error():
     raise Exception("Error")
+
+def test_zero_division():
+    with pytest.raises(ZeroDivisionError):
+        1 / 0
