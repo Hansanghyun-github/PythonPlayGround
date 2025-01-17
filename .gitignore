@@ -5,3 +5,4 @@ __pycache__/
 Main.py
 .vscode/
 .idea/
+**/.DS_Store
