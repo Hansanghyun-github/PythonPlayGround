@@ -11,8 +11,13 @@ class SampleClass:
         return 'Real Static Class'
 
 def test_mocking_method():
+    # given
     sample = SampleClass()
+
+    # when
     sample.print_value = mock.Mock(return_value='Mocked Class')
+
+    # then
     assert sample.print_value() == 'Mocked Class'
 
 def test_mocking_static_method():
@@ -27,12 +32,20 @@ def test_mocking_static_method():
     SampleClass.print_static_value.assert_called_once()
 
 def test_mocking_object_call():
+    # given
     sample = mock.Mock()
+
+    # when
     sample.print_value()
+
+    # then
     sample.print_value.assert_called_once()
 
 def test_mocking_object_not_call():
+    # given
     sample = mock.Mock()
+
+    # when # then
     with pytest.raises(AssertionError):
         sample.print_value.assert_called_once()
 
