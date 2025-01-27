@@ -49,3 +49,24 @@ def test_mocking_object_not_call():
     with pytest.raises(AssertionError):
         sample.print_value.assert_called_once()
 
+def test_magic_mock_len():
+    # given
+    sample = mock.MagicMock()
+
+    # when
+    length = len(sample)
+
+    # then
+    assert length == 10
+
+def test_magic_mock_getitem():
+    # given
+    sample = mock.MagicMock()
+    sample.__getitem__.return_value = "mock_value"
+
+    # when
+    res = sample["key"]
+
+    # then
+    assert res == "mock_value"
+    sample.__getitem__.assert_called_with("key")
