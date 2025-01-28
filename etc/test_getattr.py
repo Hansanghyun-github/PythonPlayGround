@@ -23,3 +23,13 @@ def test_getattr_unknown_attribute():
         value = getattr(obj, 'unknown')
 
 
+
+def test_getattr_default():
+    # given
+    obj = Example('Hello')
+
+    # when
+    default_value = getattr(obj, 'non_existent', 'Default Value')
+
+    # then
+    assert default_value == 'Default Value'
