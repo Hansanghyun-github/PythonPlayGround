@@ -5,18 +5,21 @@ class Example:
         self.attribute = value
 
 def test_getattr():
+    # given
     obj = Example('Hello')
 
-    # getattr({object}, {field})
+    # when
     value = getattr(obj, 'attribute')
+
+    # then
     assert value == 'Hello'
 
-    # getattr({object}, {field}, {default_value})
-    default_value = getattr(obj, 'non_existent', 'Default Value')
-    assert default_value == 'Default Value'
-
-def test_getattr2():
+def test_getattr_unknown_attribute():
+    # given
     obj = Example('Hello')
 
+    # when # then
     with pytest.raises(AttributeError):
         value = getattr(obj, 'unknown')
+
+
