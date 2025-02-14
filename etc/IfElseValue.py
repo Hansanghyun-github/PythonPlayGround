@@ -16,3 +16,8 @@ def test_if_else_value():
     assert value == 10
     value = value1() if false_method() else value2()
     assert value == 20
+
+def test_if_else_value_with_for_loop():
+    list = [1, 2, 3, 4, 5]
+    list2 = [i for i in list if i%2 == 0]
+    assert list2 == [2, 4]
