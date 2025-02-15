@@ -21,3 +21,8 @@ def test_if_else_value_with_for_loop():
     list = [1, 2, 3, 4, 5]
     list2 = [i for i in list if i%2 == 0]
     assert list2 == [2, 4]
+
+def test_in():
+    list = [1, 2, 3, 4, 5]
+    assert 1 in list
+    assert 6 not in list
