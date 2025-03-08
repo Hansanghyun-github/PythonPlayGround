@@ -3,6 +3,7 @@ import pytest
 from datetime import datetime, timedelta
 import arrow
 from pytz import timezone
+from zoneinfo import ZoneInfo
 
 def test_now():
     dt: datetime = datetime.now()
@@ -30,4 +31,10 @@ def test_arrow_replace():
     assert dt1.date() == dt2.date()
     assert dt1.time() == dt2.time()
 
+def test_zoneinfo():
+    dt1: datetime = datetime.now()
+    dt2: datetime = datetime.now(ZoneInfo('Asia/Seoul'))
 
+    assert dt1.tzinfo is None
+    assert dt2.tzinfo is not None
+    assert dt2.tzinfo.key == 'Asia/Seoul'
