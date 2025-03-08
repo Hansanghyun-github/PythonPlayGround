@@ -16,3 +16,18 @@ def test_can_not_compare_naive_and_aware():
     with pytest.raises(TypeError):
         dt1 < dt2
 
+def test_arrow_to():
+    dt1: datetime = arrow.get('2025-03-10').datetime
+    dt2: datetime = arrow.get('2025-03-10').to('Asia/Seoul').datetime
+
+    assert dt1.time() == (dt2 - timedelta(hours=9)).time()
+    assert dt1.date() == (dt2 - timedelta(hours=9)).date()
+
+def test_arrow_replace():
+    dt1: datetime = arrow.get('2025-03-10').datetime
+    dt2: datetime = arrow.get('2025-03-10').replace(tzinfo='Asia/Seoul').datetime
+
+    assert dt1.date() == dt2.date()
+    assert dt1.time() == dt2.time()
+
+
