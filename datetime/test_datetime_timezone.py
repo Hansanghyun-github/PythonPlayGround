@@ -31,7 +31,7 @@ def test_arrow_replace():
     assert dt1.date() == dt2.date()
     assert dt1.time() == dt2.time()
 
-def test_zoneinfo():
+def test_zone_info():
     dt1: datetime = datetime.now()
     dt2: datetime = datetime.now(ZoneInfo('Asia/Seoul'))
 
