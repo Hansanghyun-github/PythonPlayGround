@@ -22,3 +22,11 @@ def test_getitem():
 def test_custom_getitem():
     print_example = PrintExample()
     assert print_example[0] == 0
+
+def test_custom_getitem_2():
+    example = Example()
+    assert example[1:2] == [2]
+
+    print_example = PrintExample()
+    assert print_example[1:2] == slice(1, 2, None)
+    # index slicing send slice object to __getitem__ method
