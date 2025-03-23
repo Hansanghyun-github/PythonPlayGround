@@ -52,6 +52,7 @@ def test_mocking_object_not_call():
 def test_magic_mock_len():
     # given
     sample = mock.MagicMock()
+    sample.__len__.return_value = 10
 
     # when
     length = len(sample)
