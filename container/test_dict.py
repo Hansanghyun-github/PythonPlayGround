@@ -28,3 +28,16 @@ def test_dict_defaultdict_not_found_str():
 
     # then
     assert value == ''
+
+
+def test_dict_defaultdict_None():
+    # given
+    dic: dict[str, str] = {}
+    dic[None] = 'value'
+
+    # when
+    value = dic[None]
+
+    # then
+    print(value)
+
