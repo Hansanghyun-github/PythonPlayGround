@@ -62,3 +62,25 @@ def test_dict_defaultdict_None():
     # then
     print(value)
 
+
+def test_dict_get_not_found():
+    # given
+    dict: dict[str, int] = {}
+
+    # when
+    value = dict.get('key')
+
+    # then
+    assert value is None
+
+
+def test_dict_get_not_found_len():
+    # given
+    dict: dict[str, int] = {}
+
+    # when
+    value = dict.get('key')
+
+    # then
+    assert value is None
+    assert dict.__len__() == 0
