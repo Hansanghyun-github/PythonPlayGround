@@ -84,3 +84,15 @@ def test_dict_get_not_found_len():
     # then
     assert value is None
     assert dict.__len__() == 0
+
+
+def test_defaultdict_get_not_found_len():
+    # given
+    dict: dict[str, int] = defaultdict(int)
+
+    # when
+    value = dict.get('key')
+
+    # then
+    assert value is None
+    assert dict.__len__() == 0
