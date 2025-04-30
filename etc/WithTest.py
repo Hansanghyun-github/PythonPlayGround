@@ -1,18 +1,15 @@
 class WithClass:
+    def __init__(self):
+        self.value = 1
     def __enter__(self):
-        print('enter')
+        self.value += 2
     def __exit__(self, exc_type, exc_value, traceback):
-        print('exit')
+        self.value += 3
 
 
-def with_test():
-    with WithClass():
+def test_with():
+    target = WithClass()
+    with target:
         print('inside with block')
 
-'''
-Output:
-enter
-inside with block
-exit
-'''
-with_test()
+    assert target.value == 6
