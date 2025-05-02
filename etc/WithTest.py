@@ -2,9 +2,9 @@ class WithClass:
     def __init__(self):
         self.value = 1
     def __enter__(self):
-        self.value += 2
+        self.value += 10
     def __exit__(self, exc_type, exc_value, traceback):
-        self.value += 3
+        self.value += 100
 
 
 def test_with_block():
@@ -12,7 +12,7 @@ def test_with_block():
     with target:
         print('inside with block')
 
-    assert target.value == 6
+    assert target.value == 111
 
 def test_with_block_with_error():
     target = WithClass()
@@ -22,5 +22,5 @@ def test_with_block_with_error():
     except Exception as e:
         print('exception:', e)
 
-    assert target.value == 6
+    assert target.value == 111
     # if error is occurred, __exit__ method will be called
