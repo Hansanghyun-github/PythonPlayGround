@@ -5,6 +5,7 @@ class WithClass:
         self.value += 10
     def __exit__(self, exc_type, exc_value, traceback):
         self.value += 100
+        print('exit:', exc_type, exc_value, traceback)
 
 
 def test_with_block():
@@ -18,6 +19,7 @@ def test_with_block_with_error():
     target = WithClass()
     try:
         with target:
+            print('inside with block')
             raise Exception('test exception')
     except Exception as e:
         print('exception:', e)
