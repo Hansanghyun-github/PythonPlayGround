@@ -26,3 +26,4 @@ def test_with_block_with_error():
 
     assert target.value == 111
     # if error is occurred, __exit__ method will be called
+    # But if OS error will be raised in with block, __exit__ method will not be called
