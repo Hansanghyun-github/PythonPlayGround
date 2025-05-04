@@ -12,3 +12,8 @@ def test_zip_with_loop():
         result.append(a + b)
 
     assert result == [2, 4, 6, 8, 10]
+
+def test_zip_with_unmatched_length():
+    list1 = [1, 2, 3]
+    list2 = [4, 5, 6, 7]
+    assert list(zip(list1, list2)) == [(1, 4), (2, 5), (3, 6)]
