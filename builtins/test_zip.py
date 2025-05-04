@@ -17,3 +17,4 @@ def test_zip_with_unmatched_length():
     list1 = [1, 2, 3]
     list2 = [4, 5, 6, 7]
     assert list(zip(list1, list2)) == [(1, 4), (2, 5), (3, 6)]
+    # The last element of list2 is ignored
