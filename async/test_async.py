@@ -3,7 +3,7 @@ import asyncio
 
 async def task(second: int):
     print(f"Task {second} started")
-    time.sleep(second)
+    await asyncio.sleep(second)
     print(f"Task {second} finished")
 
 
@@ -29,3 +29,13 @@ def test_execute_async_method_with_asyncio():
 
     # then
     assert end - start >= 6
+
+def test_execute_async_method_with_asyncio_gather():
+    async def run_all():
+        await asyncio.gather(task(1), task(2), task(3))
+
+    start = time.time()
+    asyncio.run(run_all())
+    end = time.time()
+
+    assert 3 <= end - start < 4
