@@ -31,11 +31,14 @@ def test_execute_async_method_with_asyncio():
     assert end - start >= 6
 
 def test_execute_async_method_with_asyncio_gather():
+    # given
     async def run_all():
         await asyncio.gather(task(1), task(2), task(3))
 
+    # when
     start = time.time()
     asyncio.run(run_all())
     end = time.time()
 
+    # then
     assert 3 <= end - start < 4
