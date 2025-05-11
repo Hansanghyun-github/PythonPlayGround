@@ -21,3 +21,10 @@ def test_float_range():
     assert type(n) is float
     n = 1.7e308 + 1
     assert type(n) is float
+
+def test_type_with_hunting():
+    n: int = 300
+    assert type(n) is int
+    n = "300"
+    assert type(n) is str
+    # type hunting doesn't pre-occur error
