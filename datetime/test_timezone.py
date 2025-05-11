@@ -70,5 +70,3 @@ def test_3():
     dt1 = arrow.now(tz='UTC')
     print(dt1.datetime)
     print(dt1)
-
-    
