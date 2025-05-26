@@ -70,3 +70,11 @@ def test_3():
     dt1 = arrow.now(tz='UTC')
     print(dt1.datetime)
     print(dt1)
+
+
+def test_timezone_overwrite():
+    dt1 = arrow.get('2025-05-26 12:34:56+0900').to('UTC')
+    assert dt1.datetime == datetime(2025, 5, 26, 3, 34, 56, tzinfo=ZoneInfo('UTC'))
+    dt2 = arrow.get('2025-05-26 12:34:56+0900', tzinfo='UTC')
+
+    assert dt2.datetime == datetime(2025, 5, 26, 12, 34, 56, tzinfo=ZoneInfo('UTC'))
